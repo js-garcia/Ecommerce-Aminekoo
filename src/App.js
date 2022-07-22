@@ -1,12 +1,16 @@
 
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
+import ItemContainer from './components/ItemContainer/ItemContainer';
 
 function App() {
+  const styleApp = {padding: '10px 20px', marginTop: 10}
   return (
-    <div className="App">
+    <div className="container" style={styleApp}>
       <NavBar />
-    <h1>Bienvenidos a Aminekoo</h1>
+      <div className='main-container'>
+      <ItemContainer  section="Muñecos Tejidos"/>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import './NavBar.scss'
 const NavBar = () => {
     return(
         <div className='navbar-amineko'>
-            <h1>Logo</h1>
+            <img src= "/assets/amineko.png" alt="logo amineko"  width="70px" height="70px"></img>
             <ul>
                 <li><button>Inicio</button></li>
                 <li><button>Productos</button></li>
