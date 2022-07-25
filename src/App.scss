@@ -1,16 +1,18 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@600&family=Poppins:ital,wght@0,200;0,600;1,700&family=Roboto:wght@500&display=swap');
 
 * {
     box-sizing: border-box;
+    font-weight: 400;
+    font-family:'Roboto', sans-serif;
+    
 }
 
 .main-container {
     float: left;
     width: 100%;
+    padding: 0 30px;
+    gap: 2rem;
+
 }
 
-.list-products{
-    float: left;
-    width: 100%;
-    margin-bottom:  20px;
-}
+

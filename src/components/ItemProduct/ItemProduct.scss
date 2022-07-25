@@ -2,15 +2,19 @@
 
 .item-product{
     float: left;
-    width: 33.33%;
+    width: 35.3%;
     box-shadow: 1px 1px 5px #e9bbbb;
     border: 10px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     margin-right: 10px;
+    gap: 1rem;
     img{
-        width: 50%;
+        width: 100%;
     }
-}   
+
+}
+
