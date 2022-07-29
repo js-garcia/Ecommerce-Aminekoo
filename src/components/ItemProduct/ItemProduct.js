@@ -11,7 +11,7 @@ const ItemProduct = ({data, action}) => {
             <span>$ {price}</span>
             <p>Stock {stock}</p>
             <button onClick={action}>Comprar</button>
-            <ItemCount/>
+            <ItemCount stock={stock}/>
         </div>
 
     )

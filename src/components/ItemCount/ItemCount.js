@@ -1,15 +1,15 @@
 import {useState} from 'react'
 
-const ItemCount = (stock) => {
+const ItemCount = ({stock}) => {
     const[counter, setCounter] = useState(1)
 
     const addNumber = () => {
-        if(stock)
+        if( counter < stock)
         setCounter(counter + 1)
     }
 
     const removeNumber = () => {
-        if(stock)
+        if(counter > 1)
         setCounter(counter - 1)
     }
 
