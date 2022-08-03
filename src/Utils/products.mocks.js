@@ -10,14 +10,14 @@ const product = [
         id:2,
         title:"Coneja Malvina",
         price: 1980,
-        image:'Coneja Malvina.jpg',
+        image2:'Coneja Malvina.jpg',
         stock: 4
     },
     {
         id:3,
         title:"Dragon",
         price: 2250,
-        image:'Dragon.jpg',
+        image3:'Dragon.jpg',
         stock: 3
     },
     {
