@@ -7,14 +7,14 @@ const ItemDetailContainer = () => {
     
     const [listProduct, setListProduct] = useState([])
 
-    const getProduct = new Promise( (resolve, reject) => {
+    const getProduct = new Promise( (resolve) => {
     setTimeout( () => {resolve(products[0])}, 2000)})
 
     useEffect(() => {
         getProduct
         .then( (res) => {setListProduct(res)})
         .catch( (error) => {console.log("la llamada fallo")})
-    }, [])
+    },)
 
     return (
         <ItemDetail dataProducts={listProduct} initial={1}/>            

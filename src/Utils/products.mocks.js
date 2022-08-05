@@ -1,60 +1,60 @@
-const product = [
+const dataProduct = [
     {
         id:1,
         title:"Oso Benito",
         price: 2500,
-        image: 'Benito.jpg',
+        image: "/assets/Benito.jpg",
         stock: 3
     },
     {
         id:2,
         title:"Coneja Malvina",
         price: 1980,
-        image2:'Coneja Malvina.jpg',
+        image2:"/assets/Coneja Malvina.jpg",
         stock: 4
     },
     {
         id:3,
         title:"Dragon",
         price: 2250,
-        image3:'Dragon.jpg',
+        image3:"/assets/Dragon.jpg",
         stock: 3
     },
     {
         id:4,
         title:"Jirafa",
         price: 1980, 
-        image:'Jirafa.jpg',
+        image:'/assets/Jirafa.jpg',
         stock: 3
     },
     {
         id:5,
         title:"Llamita",
         price: 1980,
-        image:'Llamita.jpg',
+        image:"/assets/Llamita.jpg",
         stock: 5
     },
     {
         id:6,
         title:"Oso Rufina",
         price: 3280, 
-        image:'Oso Rufina.jpg',
+        image:"/assets/Oso Rufina.jpg",
         stock: 2
     },
     {
         id:7,
         title:"Sailor Moon",
         price: 1980,
-        image:'Sailor Moon.jpg',
+        image:"/assets/Sailor Moon.jpg",
         stock: 4
     },
     {
         id:8,
         title:"Sirena", 
         price: 1980,
-        image:'Sirena.jpg',
+        image:"/assets/Sirena.jpg",
         stock: 3
     }
 ]
 
-export default product
+export default dataProduct

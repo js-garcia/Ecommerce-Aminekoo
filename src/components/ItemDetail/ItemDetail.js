@@ -1,42 +1,37 @@
+import ItemCount from "../ItemCount/ItemCount"
+import './ItemDetail.scss'
 import { useState } from "react"
-import "./ItemDetail.scss"
+import { Link } from 'react-router-dom'
 
-const ItemDetail = ({dataProducts, initial}) => {
+const ItemDetail = ({data}) => {
+    const [quantitySelected, setQuantitySelected] = useState(0)
 
-    const {id,title,price,image,image1,image2, stock} = dataProducts
-
-    const [contador, setContador] = useState(initial)
-
-    function onAdd() {
-        contador < stock && setContador(contador+1)
-    }
-
-    function onRemove() {
-        contador > initial && setContador(contador-1)
-    }
-
-    return (         
-        <div key={id} className="d-flex flex-row align-items-center justify-content-between m-5 contenedor-detail">   
-            <div className="d-flex flex-column justify-content-center align-items-center ms-5">
-                <image src={image}  className="img-Benito"/>   
-            <div className="d-flex flex-row justify-content-around fotos m-3">
-                <image src={image1} className="img-Conejo"/>
-                <image src={image2} className="foto-secundaria"/>
-            </div>               
-        </div>           
-        <div className=" d-flex flex-column align-items-center justify-content-around me-5">
-            <h2>{title}</h2>
-                <p className="info d-flex justify-content-center">Los personajes más tiernos,tejidos con mucho amor</p>
-                <span className="precio">$ {price}</span>
-                <div className="d-flex justify-content-s my-5">
-                    <button onClick={onRemove} className="btn btn-outline-danger h-1 border-3 rounded-5">-</button>
-                    <p className="m-3">{contador}</p>
-                    <button onClick={onAdd} className="btn btn-outline-danger border-3 rounded-5">+</button>
+    return(
+        <>
+            <div className="item-detail-image">
+                <img src={`/assets${data.image}`} alt="imagen" />
+            </div>
+            <div className="item-detail-info">
+                <span className="category">Animales Tejidos</span>
+                <h2>{data.title}</h2>
+                <p className="detail-info__price">$ {data.price}</p>
+                <div className="detail-info__color">
+                    <button>White</button> / <button>Light Blue</button>
                 </div>
-                    <button className="btn btn-outline-danger">COMPRAR</button>
-        </div>
-    </div>            
+                <span>Tamaños</span>
+                <div className="detail-info__size">
+                    <button>Pequeño</button>
+                    <button>Mediano</button>
+                    <button>Grande</button>
+                </div>
+                {console.log("quantitySelected: ", quantitySelected)}
+    {
+        quantitySelected > 0 ? <button><Link to="/cart">TERMINAR COMPRA</Link></button> : <ItemCount setQuantitySelected={setQuantitySelected}/>
+    }
+                
+                
+            </div>
+        </>
     )
 }
-
-export default ItemDetail
+    export default ItemDetail

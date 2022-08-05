@@ -2,9 +2,7 @@
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemCount from './components/ItemCount/ItemCount';
-import Item from './components/Item/Item';
-import ItemList from './components/ItemList/ItemList';
+import ItemDetail from './components/ItemDetail/ItemDetail';
 
 
 function App() {
@@ -12,10 +10,11 @@ function App() {
     <div className="container">
       <NavBar />
       <div className='main-container'>
-        <Item/>
+        {/*<Item/> */}
       <ItemListContainer  section="Muñecos Tejidos"/>
-      <ItemList/>
-      <ItemCount/>
+      <ItemDetail/>
+      {/*<ItemList/>*/}
+      {/*<ItemCount/> */}
       </div>
       
       {/*<Modal title="Modal de Registro">
