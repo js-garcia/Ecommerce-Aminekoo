@@ -1,4 +1,4 @@
-import ItemCount from "../ItemCount/ItemCount"
+import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.scss'
 import { useState } from "react"
 import { Link } from 'react-router-dom'

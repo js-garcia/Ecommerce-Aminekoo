@@ -1,5 +1,5 @@
-import ItemDetail from "../ItemDetail/ItemDetail";
-import products from "../Utils/products.mock";
+import ItemDetail from '../ItemDetail/ItemDetail';
+import products from '../Utils/products.mock';
 import { useEffect, useState } from "react"
 
 

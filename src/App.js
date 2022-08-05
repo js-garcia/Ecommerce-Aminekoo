@@ -1,31 +1,31 @@
 
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetail from './components/ItemDetail/ItemDetail';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Detail from './pages/Detail';
+import Checkout from './pages/Checkout';
+import CartProvider from './Context/CartContext'
 
 function App() {
+
   return (
-    <div className="container">
-      <NavBar />
-      <div className='main-container'>
-        {/*<Item/> */}
-      <ItemListContainer  section="Muñecos Tejidos"/>
-      <ItemDetail/>
-      {/*<ItemList/>*/}
-      {/*<ItemCount/> */}
-      </div>
-      
-      {/*<Modal title="Modal de Registro">
-      <form>
-        <input tipe="text"/>
-        <button>enviar</button>
-      </form>
-      </Modal>*/}
-    
-    </div>
-  )
+    //JSX
+    <CartProvider >
+    <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/contacto" element={<Contact />}/>
+          <Route path="/productos" element={<h1>Productos</h1>}/>
+          <Route path="/productos/:id" element={<Detail />} />
+          <Route path='/cart' element={<Checkout />}/>
+          <Route path="*" element={<h1>ERROR 404 -  pagina no encontrada</h1>}/>
+        </Routes>
+    </BrowserRouter>
+    </CartProvider>
+  );
 }
 
 export default App;
