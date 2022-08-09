@@ -1,40 +1,37 @@
-import { useEffect, useState } from 'react'
-import Item from '../ItemList/ItemList'
+import { useEffect, useState } from "react"
+import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.scss'
-import Products from '../../Utils/products.mocks'
-
+import products from '../../Utils/products.mocks'
 
 const ItemListContainer = ({section}) => {
 
-    const[listProducts, setListProducts] = useState([])
+    const [listProducts, setListProducts] = useState([])
 
-    const getProducts = new Promise( (resolve) => {
+    const getProducts = new Promise( (resolve, reject) => {
         setTimeout( () => {
-            resolve(Products)
+            resolve(products)
         }, 2000)
-    }) 
+    })
 
     useEffect(() => {
         getProducts
-            .then( (res) => { // Respuesta OK
-                //console.log("Productos: ", res)
+            .then( (res) => {
                 setListProducts(res)
             })
-            .catch( (error) => { // Falla la respuesta
-                console.log("la llama fallo", error)
+            .catch( (error) => {
             })
-            .finally( () => { // Siempre que termina por OK o Fallo
-            //setSpinner(false) 
+            .finally( () => {
             })
+    }, [])
 
-    },)
+
+
 
     return(
-        <div className='list-product'>
+        <div className='list-products'>
             <h2>{section}</h2>
-        <Item  dataProducts={listProducts}/>
+            <ItemList dataProducts={listProducts}/>
         </div>
-        
     )
 }
 

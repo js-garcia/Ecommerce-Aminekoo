@@ -3,18 +3,18 @@ import './ItemDetail.scss'
 import { useState } from "react"
 import { Link } from 'react-router-dom'
 
-const ItemDetail = ({data}) => {
+const ItemDetail = ({dataProducts}) => {
     const [quantitySelected, setQuantitySelected] = useState(0)
 
     return(
         <>
             <div className="item-detail-image">
-                <img src={`/assets${data.image}`} alt="imagen" />
+                <img src= {`${dataProducts.image}`} alt="imagen" />
             </div>
             <div className="item-detail-info">
                 <span className="category">Animales Tejidos</span>
-                <h2>{data.title}</h2>
-                <p className="detail-info__price">$ {data.price}</p>
+                <h2>{dataProducts.title}</h2>
+                <p className="detail-info__price">$ {dataProducts.price}</p>
                 <div className="detail-info__color">
                     <button>White</button> / <button>Light Blue</button>
                 </div>

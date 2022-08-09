@@ -1,4 +1,4 @@
-import Item from "../ItemDetail/ItemDetail"
+import Item from "../../components/ItemDetail/ItemDetail"
 import "./ItemList.scss"
 
 
