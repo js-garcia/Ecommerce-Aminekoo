@@ -4,7 +4,7 @@ const Home = () => {
     return(
         <div className="container" >
             <section className='main-container'>
-            <ItemListContainer section="Productos en oferta"/>
+            <ItemListContainer section="Nuestros Diseños"/>
             </section>
         </div>
     )

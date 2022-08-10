@@ -28,7 +28,7 @@ const Product = [
         title:"Jirafa",
         category: "Animales tejidos",
         price: 1980, 
-        image:'/assets/Jirafa.jpg',
+        image:"/assets/Jirafa.jpg",
         stock: 3
     },
     {

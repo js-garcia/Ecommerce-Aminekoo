@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail";
 import products from "../../Utils/products.mocks";
+import './ItemDetailContainer.scss';
 import { useParams } from 'react-router-dom'
 
 

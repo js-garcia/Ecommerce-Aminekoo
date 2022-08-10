@@ -7,7 +7,7 @@ const ItemListContainer = ({section}) => {
 
     const [listProducts, setListProducts] = useState([])
 
-    const getProducts = new Promise( (resolve, reject) => {
+    const getProducts = new Promise( (resolve) => {
         setTimeout( () => {
             resolve(products)
         }, 2000)
@@ -19,6 +19,7 @@ const ItemListContainer = ({section}) => {
                 setListProducts(res)
             })
             .catch( (error) => {
+                console.log(error);
             })
             .finally( () => {
             })

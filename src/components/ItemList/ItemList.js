@@ -1,5 +1,5 @@
-import Item from "../../components/ItemDetail/ItemDetail"
-import "./ItemList.scss"
+import Item from '../ItemDetail/ItemDetail'
+
 
 
 const ItemList = ({dataProducts}) => {
