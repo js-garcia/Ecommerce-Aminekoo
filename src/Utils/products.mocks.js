@@ -12,7 +12,7 @@ const Product = [
         title:"Coneja Malvina",
         category: "Animales tejidos",
         price: 1980,
-        image2:"/assets/Coneja Malvina.jpg",
+        image:"/assets/Coneja Malvina.jpg",
         stock: 4
     },
     {
@@ -20,7 +20,7 @@ const Product = [
         title:"Dragon",
         category: "Animales tejidos",
         price: 2250,
-        image3:"/assets/Dragon.jpg",
+        image:"/assets/Dragon.jpg",
         stock: 3
     },
     {

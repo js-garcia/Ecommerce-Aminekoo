@@ -1,5 +1,5 @@
 .container-item-detail {
-    display: flex;
+    display:grid;
 }
 
 .overlay-black::before {
@@ -19,12 +19,12 @@
 }
 
 .item-detail-image img {
-    width: 100%;
+    width: 40%;
     cursor: pointer;
 }
 
 .item-detail-info {
-    width: 30%;
+    width: 25%;
     padding-top: 10px;
     border-left: 1px solid #ccc;
     padding-left: 10px;

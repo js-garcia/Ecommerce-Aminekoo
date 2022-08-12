@@ -1,32 +1,61 @@
-import { createContext, useState } from "react";
+import { useState, createContext } from "react";
 
-const CartContext = createContext()
+export const CardtContex = createContext();
 
-const CartProvider = ({children}) => {
-    const [cartProducts, setCartProducts] = useState([])
+const CardtProvider = ({ children }) => {
+    const [contador, setContador] = useState(0);
+    const [totalCarrito, setTotalCarrito] = useState(0);
+    const [cart, setCart] = useState([]);
 
-    const addProductToCart = (product) => {
-        setCartProducts([...cartProducts, product])
+    const addToCart = (product) => {
+    const isInCart = cart.find(
+        (productInCart) => productInCart.id === product.id
+    );
+    if (isInCart) {
+        const newArray = cart.map((productInCart) => {
+        if (productInCart.id === product.id) {
+        return {
+            ...productInCart,
+            cantidad: productInCart.cantidad + product.cantidad,
+        };
+        } else {
+        return productInCart;
+        }
+    });
+    setCart(newArray);
+    } else {
+        setCart([...cart, product]);
     }
+    setContador(contador + product.cantidad);
+    setTotalCarrito(
+        totalCarrito +
+        parseInt(product.cantidad) * parseFloat(product.precio.slice(2))
+    );
+};
 
-    const clear = () => {
-        setCartProducts([])
-    }
+const clear = () => {
+    setCart([]);
+    setContador(0);
+    setTotalCarrito(0);
+    };
 
-    const data = {
-        cartProducts,
-        setCartProducts,
-        clear,
-        addProductToCart
-    }
+    const removeFromCart = (id) => {
+    const prod = cart.find((product) => product.id === id);
+    setTotalCarrito(
+      totalCarrito - parseInt(prod.cantidad) * parseFloat(prod.precio.slice(2))
+    );
+    setContador(contador - prod.cantidad);
+    const newCart = cart.filter((product) => product.id !== id);
+    setCart(newCart);
+};
 
-    return(
-        <CartContext.Provider value={data}>
-            {children}
-        </CartContext.Provider>
-    )
-}
+    return (
+    <CardtContex.Provider
+        value={{ contador, totalCarrito, cart, addToCart, clear, removeFromCart }}
+    >
+        {children}
+    </CardtContex.Provider>
+);
+};
 
-export default CartProvider
-
-export { CartContext }
+export default CardtProvider;

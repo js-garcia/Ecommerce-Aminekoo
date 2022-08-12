@@ -23,7 +23,7 @@ const ItemListContainer = ({section}) => {
             })
             .finally( () => {
             })
-    }, [])
+    }, )
 
 
 

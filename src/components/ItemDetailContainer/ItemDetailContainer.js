@@ -1,36 +1,36 @@
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react";
+import "./ItemDetailContainer.scss";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import products from "../../Utils/products.mocks";
-import './ItemDetailContainer.scss';
-import { useParams } from 'react-router-dom'
+import prod from "../../Utils/products.mocks"
 
+function ItemDetailContainer({ item }) {
+    const [producto, setProducto] = useState([]);
 
+    const traeProducto = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve(prod.find((p) => p.id === parseInt(item)));
+    }, 1);
+});
 
-const ItemDetailContainer = () => {
-    const [productData, setProductData] = useState({})
+    useEffect(() => {
+        traeProducto
+        .then((respuesta) => {
+        setProducto(respuesta);
+        console.log(producto);
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .finally(() => {
+        console.log("seguimos...");
+    });
+    }, []);
 
-    const { id } = useParams()
-    
-    useEffect( () => {
-        filterById()
-    }, [id])
-
-    const filterById = () => {
-        products.some( (product) => {
-            if(product.id === id) {
-                console.log("producto filtrado: ", product)
-                setProductData(product) 
-            }
-        }
-    )
-    }
-    return(
-        <div className="container-item-detail">
-            <ItemDetail data={productData}/>
-        </div>
-    )
-    
+    return (
+    <div className="container contenedorVista">
+        <ItemDetail datos={producto} />
+    </div>
+    );
 }
 
-
-export default ItemDetailContainer
+export default ItemDetailContainer;
