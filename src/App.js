@@ -5,14 +5,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home';
 import Contac from './pages/Contac';
 import Detail from './pages/Detail';
-import Checkout from './pages/Checkout';
-import CardtProvider from './Context/CardtContex'
+import Checkout from './components/Checkout/ChecKout';
+import CartProvider from './Context/CartContext'
 
 function App() {
 
   return (
     //JSX
-    <CardtProvider >
+    <CartProvider >
     <BrowserRouter>
         <NavBar />
         <Routes>
@@ -24,7 +24,7 @@ function App() {
           <Route path="*" element={<h1>ERROR 404 -  pagina no encontrada</h1>}/>
         </Routes>
     </BrowserRouter>
-    </CardtProvider>
+    </CartProvider>
   );
 }
 
