@@ -1,6 +1,6 @@
 import {useState , useContext} from 'react'
+import { Menu } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import MenuItem from '@mui/material/MenuItem';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CartContext } from '../../Context/CartContext';
 
@@ -8,7 +8,7 @@ import { CartContext } from '../../Context/CartContext';
 const CartWidget = () => {
     const [anchorEl, setAnchorEl] = useState(null);
 
-    const { cartProducts, clear, deleteProduct, totalProducts } = useContext(CartContext)
+    const { cart, clear, deleteProduct, totalProducts } = useContext(CartContext)
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -19,14 +19,14 @@ const CartWidget = () => {
     };
     return(
         <div className="cart-widget" >
-            {cartProducts !== 0 && <p>{totalProducts}</p>}
+            {cart.length !== 0 && <p>{totalProducts}</p>}
             <ShoppingCartIcon 
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
             />
-            <MenuItem
+            <Menu
                 id="basic-menu"
                 anchorEl={anchorEl}
                 open={open}
@@ -35,7 +35,7 @@ const CartWidget = () => {
                 'aria-labelledby': 'basic-button',
                 }}
             >
-                {cartProducts.map((product) => {
+                {cart.map((product) => {
                     return(
                         <div className='item-cart-product' key={product.id}>
                             <img src={`/assets/${product.image}`} alt="" />
@@ -53,7 +53,7 @@ const CartWidget = () => {
                     )
                 })}
                 <button onClick={() => clear()} className={"btn-delete-all"}>Borrar todo</button>
-            </MenuItem>
+            </Menu>
         </div>
     )
 }

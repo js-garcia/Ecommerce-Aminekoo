@@ -1,35 +1,23 @@
 import React, {useEffect, useState} from "react";
 import "./ItemDetailContainer.scss";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import prod from "../../Utils/products.mocks"
+import { getFirestore, collection, getDocs, doc} from 'firebase/firestore'
+import { useParams } from "react-router";
 
-function ItemDetailContainer({ item }) {
-    const [producto, setProducto] = useState();
-
-    const getProducto = new Promise((resolve) => {
-    setTimeout(() => {
-        resolve(prod.find((p) => p.id === parseInt(item)));
-    }, 1);
-});
+export const ItemDetailContainer =() => {
+    const[ data, setData]= useState ({})
+    const {detalleId} = useParams();
 
     useEffect(() => {
-        getProducto
-        .then((respuesta) => {
-        setProducto(respuesta);
-        console.log(producto);
-    })
-    .catch((error) => {
-        console.log(error);
-    })
-    .finally(() => {
-        console.log("seguimos...");
-    });
-    },);
-
+        const querydb = getFirestore();
+        const queryDoc = doc(querydb,'productos', '1LuN9iUMknppn0Tpwdn9');
+        getDocs(queryDoc)
+            .then(res => setData({id:res.id,...res.data()}))
+    }, [])
+    
     return (
-    <div className="container contenedorVista">
-        <ItemDetail datos={producto} />
-    </div>
+    
+        <ItemDetail data={data} />
     );
 }
 
