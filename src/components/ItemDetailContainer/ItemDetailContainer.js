@@ -1,24 +1,47 @@
-import React, {useEffect, useState} from "react";
-import "./ItemDetailContainer.scss";
+import  {useEffect, useState} from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { getFirestore, collection, getDocs, doc} from 'firebase/firestore'
+import "./ItemDetailContainer.scss";
+//import Products from "../../Utils/products.mocks";
 import { useParams } from "react-router";
+import Modal from "../Modal/Modal";
+//Firebase
+import db from "../../FirebaseConfig";
+import { doc,  getDoc } from 'firebase/firestore';
+import { async } from "@firebase/util"
 
-export const ItemDetailContainer =() => {
-    const[ data, setData]= useState ({})
-    const {detalleId} = useParams();
 
-    useEffect(() => {
-        const querydb = getFirestore();
-        const queryDoc = doc(querydb,'productos', '1LuN9iUMknppn0Tpwdn9');
-        getDocs(queryDoc)
-            .then(res => setData({id:res.id,...res.data()}))
-    }, [])
+const ItemDetailContainer =() => {
+    const [ dataProducts, setDataProducts] = useState ({})
+    const [showModal, setShowModal] = useState(false)
+    const { id } = useParams();
+
+    useEffect( () => {
+        getProduct()
+        .then((res) => {
+            setDataProducts(res)
+        })
+    }, [id])
+
     
-    return (
-    
-        <ItemDetail data={data} />
-    );
+
+    const getProduct = async () => {
+        const docRef = doc(db, 'productos', id)
+        const docSnapshot = await getDoc(docRef)
+        let product = docSnapshot.data()
+        dataProducts.id = docSnapshot.id
+        return product
+    }
+
+    return(
+        <div className={`container-item-detail ${showModal ? 'overlay-black' : ''}`}>
+            <ItemDetail data={dataProducts} setShowModal={setShowModal}/>
+            {showModal && (
+                <Modal title="Imagen Producto" close={setShowModal}>
+                    <image src={`/assets/${dataProducts.image}`} />
+                </Modal>
+            )}
+        </div>
+    )
 }
 
 export default ItemDetailContainer;
