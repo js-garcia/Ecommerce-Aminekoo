@@ -1,13 +1,15 @@
-import Item from '../ItemDetail/ItemDetail'
+import Item from "../Item/Item";
 
-
-
-const ItemList = ({dataProducts}) => {
+const ItemList = ({ dataProducts }) => {
     return (
-        <div className="d-flex row justify-content-center m-3 flex-wrap">
-            { dataProducts.map( (product)=>{return <Item key={product.id} data={product} initial={1}/>})}
-        </div>
+        <>
+            {
+                dataProducts.map((prod) => {
+                    return <Item key={prod.id} datos={prod}/>   
+                })
+            }
+        </>
     )
 }
 
-export default ItemList
+export default ItemList;

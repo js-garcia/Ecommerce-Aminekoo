@@ -1,0 +1,24 @@
+.link{
+    display: inline;
+        list-style-type: none;
+        margin: 90px;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgb(238, 104, 245);
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+}
+/* Change the link color to #111 (black) on hover */
+
+
+.link:hover{
+    background-color: rgb(244, 28, 193);
+    text-decoration: none;
+    text-decoration: underline;
+    padding-left: 10px;
+    color: rgb(238, 215, 230);
+}

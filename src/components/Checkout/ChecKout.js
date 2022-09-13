@@ -1,35 +1,141 @@
-import React, { useState, useEffect, useContext } from "react";
+import Table from "react-bootstrap/Table";
+import React, { useContext } from "react";
+import ItemListContainer from "../ItemListContainer/ItemListContainer";
+import "./Checkout.css";
+import { CartContext } from "../../Context/CartContext";
+import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { CartContext } from '../../Context/CartContext';
-import "./Checkout.scss";
 
 const Checkout = () => {
-  const [totalPrice, setTotalPrice] = useState(0);
-  const { cart } = useContext(CartContext);
-
-  useEffect(() => {
-    if (cart.length > 0) {
-      setTotalPrice(
-        cart
-          .map((product) => product.price * product.quantity)
-          .reduce((total, valor) => total + valor)
-      );
-    }
-  }, [cart]);
-
-  return (
-    <div className="checkout container">
-      <div className="card text-center text-dark">
-        <div className="card-header">Resúmen</div>
-        <div className="card-body">
-          <h5 className="card-title">Total: ${totalPrice}</h5>
-          <p className="card-text">Para continuar haz click en el botón.</p>
-          <Link to="/form" className="btn btn-primary">
-            Realizar compra
-          </Link>
+  const { contador, totalCarrito, removeFromCart, cart, clear } =
+    useContext(CartContext);
+  return contador === 0 ? (
+    <>
+      <div className="container">
+        <div className="mensajeCompra">
+          <i className="fa-regular fa-face-frown fa-7x"></i>
+          <p className="textoMensajeCompra">Ups..!!</p>
+          <p className="textoMensajeCompra">
+            El carrito esta vacio!, tal vez te interese algunos de
+            estos productos!
+          </p>
         </div>
       </div>
-    </div>
+      <ItemListContainer titulo="Listado de Productos Copadoooss" filtro="" />
+    </>
+  ) : (
+    <>
+      <div className="container">
+        <div className="mensajeCompra">
+          <i className="fa-regular fa-face-grin-tongue-wink fa-7x"></i>
+          <p className="textoMensajeCompra">Genial !!!</p>
+          <p className="textoMensajeCompra">
+            Si compras este carrito que te va a hacer muuuuy feliz!
+          </p>
+        </div>
+        <div>
+          <h5>Detalle del Carrito</h5>
+        </div>
+        <Table striped hover>
+          <thead>
+            <tr>
+              <th>Articulo</th>
+              <th>Cantidad</th>
+              <th>Importe</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cart.map((p) => {
+              return (
+                <tr key={p.id}>
+                  <td>
+                    <div className="itemNc">
+                      <img className="itemImgC" src={`/assets/images/${p.imagen}`} alt="" />
+                      <div className="contenedorDescrip">
+                        <p className="tituloDesc">{p.titulo}</p>
+                        <p>{p.precio}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="contenedorCant">
+                      <p className="tituloCant">{p.cantidad}</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="contenedorImporte">
+                      <p className="tituloImporte">
+                        {(p.cantidad) * (p.precio)}
+                      </p>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="contenedorCant">
+                      <button onClick={() => removeFromCart(p.id)}>
+                        <i className="fa-solid fa-trash-can fa-l"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+          <tfoot className="tFooter">
+            <tr>
+              <td colSpan={2} className="derecha">
+                Total Carrito
+              </td>
+              <td className="derecha">$ {totalCarrito}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colSpan={2} className="derecha">
+                Envío
+              </td>
+              <td className="derecha">$ {0}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colSpan={2} className="derecha">
+                Total
+              </td>
+              <td className="derecha">$ {totalCarrito}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colSpan={1} className="derecha"></td>
+              <td>
+                <Button
+                  onClick={() => clear()}
+                  className="buttonSize"
+                  variant="light"
+                >
+                  Vaciar Carrito
+                </Button>
+              </td>
+              <td>
+                <Link to={`/`}>
+                  <Button className="buttonSize" variant="dark">
+                    Seguir Comprando
+                  </Button>
+                </Link>
+              </td>
+              <td>
+                <Link to={`/finalcompra`}>
+                  <Button
+                    className="buttonSize"
+                    variant="dark"
+                  >
+                    Terminar Compra
+                  </Button>
+                </Link>
+              </td>
+            </tr>
+          </tfoot>
+        </Table>
+      </div>
+    </>
   );
 };
 

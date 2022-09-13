@@ -1,5 +1,13 @@
 # Getting Started with Create React App
 
+Amineko es una tienda de productos tejidos enfocados a un publico infantil tales como animales, personajes, accesorios, y todo lo relacionado a los juguetes para niños.
+
+Para lo cual se penso en un desarrollo en React JS valiendose de la programacion orientada a complementos que nos brinda la herramienta.
+
+Por una cuestion de practicidad se utilizo el servicio de Firebase de google como back end.
+
+Los script dispionibles para replicar este proyecto en su computadora son
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -39,12 +47,18 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Dependencias Utilizadas
+Font Awesome : para la los Iconos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+React Bootstrap : para botones, crousel, cards y contenido del layout y todo lo que tenga que ver con la maquetacion y el css.
 
+React Router Dom : Para todo manear los enlaces
+
+Todas esta librerias se encuentra en el package.json por lo que al ejecutar el scrip npm install se instalaran automaticamente.
+
+Detalle del proyecto
+Basicamente los productos estan divididos en categorias las cuales contienen los productos relacionados, se puede navegar entre categorias, ingresar al detalle de cada producto, en donde se permite seleccionar la cantidad deseada y agregar al carrito de compras.
 ### Code Splitting
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)

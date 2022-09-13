@@ -1,47 +1,42 @@
-import  {useEffect, useState} from "react";
-import ItemDetail from "../ItemDetail/ItemDetail";
-import "./ItemDetailContainer.scss";
-//import Products from "../../Utils/products.mocks";
-import { useParams } from "react-router";
-import Modal from "../Modal/Modal";
-//Firebase
-import db from "../../FirebaseConfig";
-import { doc,  getDoc } from 'firebase/firestore';
-import { async } from "@firebase/util"
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from "react";
+import "./ItemDetailContainer.css";
+import ItemDetail from "./ItemDetail/ItemDetail";
+import db from "../../FirebaseConfig"
+import { doc, getDoc } from "firebase/firestore"
+
+function ItemDetailContainer({ item }) {
+  const [producto, setProducto] = useState([]);
+
+  const traeProducto = async () => {
+    const docRef = doc(db, 'productos', item)
+    const docSnapshot = await getDoc(docRef)
+    let product = docSnapshot.data()
+    product.id = docSnapshot.id
+    console.log('data con id:', product)
+    return product
+}
 
 
-const ItemDetailContainer =() => {
-    const [ dataProducts, setDataProducts] = useState ({})
-    const [showModal, setShowModal] = useState(false)
-    const { id } = useParams();
+  useEffect(() => {
+    traeProducto()
+      .then((respuesta) => {
+        setProducto(respuesta);
+        console.log(producto);
+      })
+      .catch((error) => {
+        console.log("Error en la llamada");
+      })
+      .finally(() => {
+        console.log("seguimos...");
+      });
+  }, [item]);
 
-    useEffect( () => {
-        getProduct()
-        .then((res) => {
-            setDataProducts(res)
-        })
-    }, [id])
-
-    
-
-    const getProduct = async () => {
-        const docRef = doc(db, 'productos', id)
-        const docSnapshot = await getDoc(docRef)
-        let product = docSnapshot.data()
-        dataProducts.id = docSnapshot.id
-        return product
-    }
-
-    return(
-        <div className={`container-item-detail ${showModal ? 'overlay-black' : ''}`}>
-            <ItemDetail data={dataProducts} setShowModal={setShowModal}/>
-            {showModal && (
-                <Modal title="Imagen Producto" close={setShowModal}>
-                    <image src={`/assets/${dataProducts.image}`} />
-                </Modal>
-            )}
-        </div>
-    )
+  return (
+    <div className="container contenedorVista">
+      <ItemDetail datos={producto} />
+    </div>
+  );
 }
 
 export default ItemDetailContainer;
