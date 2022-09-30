@@ -7,11 +7,11 @@ import Button from 'react-bootstrap/Button';
 const Footer=()=> {
     return (
     <>    
-        <Container fluid className="greenProyect">
+        <Container fluid className="CatProyect">
             <Container>
                 <Row>
                     <Col sm={2}></Col>
-                    <Col sm={8}  className="greenProyect-lg">
+                    <Col sm={8}  className="CatProyect-lg">
                         <image src="./assets/Logo-Amineko.png"></image>
                         <div className="texto">
                             <h2>Gatites del centenario</h2>
@@ -28,8 +28,7 @@ const Footer=()=> {
             <Container>
                 <Row>
                     <Col sm={12} className="center">
-                        <image src="./assets/Logo-Amineko.png" className=""></image>
-                        <h4>No mather the conditions</h4>
+                        <image src="../../assests/Amineko.png" className=""></image>
                     </Col>
                 </Row> 
                 <Row>   

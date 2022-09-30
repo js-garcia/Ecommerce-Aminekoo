@@ -1,4 +1,5 @@
 # Getting Started with Create React App
+[(/assets/Gif/gif-amineko.wfp)]
 
 Amineko es una tienda de productos tejidos enfocados a un publico infantil tales como animales, personajes, accesorios, y todo lo relacionado a los juguetes para niños.
 

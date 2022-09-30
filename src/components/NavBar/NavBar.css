@@ -1,24 +1,51 @@
-.link{
-    display: inline;
-        list-style-type: none;
-        margin: 90px;
-        padding: 0;
-        overflow: hidden;
-        background-color: rgb(238, 104, 245);
-        float: left;
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@1,500&family=Edu+NSW+ACT+Foundation:wght@600&family=Poppins:wght@200;600&family=Roboto:wght@500&display=swap');
+
+
+header {
+    margin-top: 55px; 
 }
-/* Change the link color to #111 (black) on hover */
+
+.container{
+    padding-left: 15px;
+    margin: 5px 0px 10px 0px;
+    box-sizing: border-box;
+    padding-top: 0.5rem;
+    padding-bottom: 00.5rem;
+    font-family: 'Alegreya Sans', sans-serif;
+    color: #666666;
+}
+
+.navbar-toggler-icon{
+    width: min-content;
+}
 
 
-.link:hover{
-    background-color: rgb(244, 28, 193);
-    text-decoration: none;
-    text-decoration: underline;
-    padding-left: 10px;
-    color: rgb(238, 215, 230);
+.h3{
+    display: flex;
+    align-items: center;
+    font-size: 80px;
+
+
+}
+
+
+.my-navbar{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    word-spacing: 5pt;
+    border-bottom-style: solid;
+    border-bottom-color: #f1d5e7;
+    font-size: 18px;
+    font-style: italic;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    
+}
+
+.linea{
+    background-color: darkgrey;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }

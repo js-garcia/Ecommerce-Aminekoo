@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 const ItemDetail = ({ datos }) => {
-  const { imagen, titulo, precio, precioAnterior, stock, onsale, categoria } =
+  const { imagen, titulo, precio, stock,categoria } =
     datos;
   const [quantitySelected, setQuantitySelected] = useState(0);
   return (
@@ -13,32 +13,23 @@ const ItemDetail = ({ datos }) => {
       <div className="containerImgs">
         <div className="tmbsContainer">
           <div className="tmbContainer">
-            <img className="tmb" src={`/assets/${imagen}`} alt="" />
+            <img className="tmb" src={`/assets/images/${imagen}`} alt="" />
           </div>
           <div className="tmbContainer">
-            <img className="tmb" src={`/assets/${imagen}`} alt="" />
+            <img className="tmb" src={`/assets/images/${imagen}`} alt="" />
           </div>
           <div className="tmbContainer">
-            <img className="tmb" src={`/assets/${imagen}`} alt="" />
+            <img className="tmb" src={`/assets/images/${imagen}`} alt="" />
           </div>
           <div className="tmbContainer">
-            <img className="tmb" src={`/assets/${imagen}`} alt="" />
+            <img className="tmb" src={`/assets/images/${imagen}`} alt="" />
           </div>
         </div>
         <div className="imgContainer">
           <div className="likeBarra">
             <i className="fa-regular fa-heart fa-2x onTop derecha likeColor"></i>
           </div>
-          {onsale ? (
-            <img
-              className="sale"
-              src={"/assets/sale img.png"}
-              alt="Sale"
-            />
-          ) : (
-            ``
-          )}
-          <img className="imagen" src={`/assets/${imagen}`} alt="" />
+          <img className="imagen" src={`/assets/images/${imagen}`} alt="" />
         </div>
       </div>
       <div className="containerInfo">
@@ -54,19 +45,12 @@ const ItemDetail = ({ datos }) => {
         <h1>{titulo}</h1>
         <hr />
         <div className="precio">
-          {onsale ? (
-            <h4>
-              <span className="tachado">{precioAnterior}</span>
-            </h4>
-          ) : (
-            ``
-          )}
           <h2>{precio}</h2>
         </div>
         <hr />
         <h4>Descripcion del Producto</h4>
         <p>
-          {titulo}, Es ideal para hacerle un regalo a esa personita especial,nada mejor que un regalo
+          {titulo}Ideal para hacerle un regalo a esa personita especial,nada mejor que un regalo
           hecho a mano y con mucho amor!
         </p>
         <hr />

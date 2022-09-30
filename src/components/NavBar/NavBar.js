@@ -1,43 +1,42 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css";
-import { Link } from "react-router-dom";
 
-function Navigation() {
-    return (
-    <div className="fixed">
-        <CartWidget contador={0} />
-        <Navbar bg="dark" variant="dark">
-        <Container>
-            <Link to="/">
-            <img
-              alt=""
-              src="/assets/Amineko.png"
-              width="90"
-              height="85"
-              className="d-inline-block align-top"
-            />
-          </Link>
-          <Nav className="me-auto">
-            <Link to="/Animales">
-              <p className="link"> Animales Tejidos </p>
-            </Link>
-            <Link to="/Personajes">
-              <p className="link"> Personajes</p>
-            </Link>
-            <Link to="/Accesorios">
-              <p className="link"> Accesorios </p>
-            </Link>
-            <Link to="/Decoracion">
-              <p className="link"> Decoracion </p>
-            </Link>
+
+
+
+function CollapsibleExample() {
+  return (
+    <div className='fixed'>
+      <CartWidget contador={0} />
+    <Navbar collapseOnSelect expand="lg" bg="dark">
+      <Container>
+          <Navbar.Brand href="#home">
+            <h2>AMINEKO</h2>
+            <img alt="logo" src="./assets/Amineko.png" width="100" height="100"/>
+          </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Nav className="my-navbar">
+            <Nav.Link href="#animales tejidos">Animalitos</Nav.Link>
+            <Nav.Link href="#personajes tejidos">Personajes</Nav.Link>
+            <Nav.Link href="#decoracion">Decoracion</Nav.Link>
+            <Row>
+              <Col sm={12} className="center linea">
+              </Col>
+            </Row> 
+
           </Nav>
-        </Container>
-      </Navbar>
+          <Nav>
+          </Nav>
+      </Container>
+    </Navbar>
     </div>
   );
 }
 
-export default Navigation;
+export default CollapsibleExample;

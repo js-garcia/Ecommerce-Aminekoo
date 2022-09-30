@@ -4,7 +4,7 @@ const Productos = [
         title:"Oso Benito",
         category: "Animales tejidos",
         price: 2500,
-        image: "/assets/Benito.jpg",
+        image: "/assets/images/Benito.jpg",
         stock: 3
     },
     {
@@ -12,7 +12,7 @@ const Productos = [
         title:"Coneja Malvina",
         category: "Animales tejidos",
         price: 1980,
-        image:"/assets/Coneja Malvina.jpg",
+        image:"/assets/images/Malvina.jpg",
         stock: 4
     },
     {
@@ -20,7 +20,7 @@ const Productos = [
         title:"Dragon",
         category: "Animales tejidos",
         price: 2250,
-        image:"/assets/Dragon.jpg",
+        image:"/assets/images/Dragon.jpg",
         stock: 3
     },
     {
@@ -28,7 +28,7 @@ const Productos = [
         title:"Jirafa",
         category: "Animales tejidos",
         price: 1980, 
-        image:"/assets/Jirafa.jpg",
+        image:"/assets/images/Jirafa.jpg",
         stock: 3
     },
     {
@@ -36,7 +36,7 @@ const Productos = [
         title:"Llamita",
         category: "Animales tejidos",
         price: 1980,
-        image:"/assets/Llamita.jpg",
+        image:"/assets/images/Llamita.jpg",
         stock: 5
     },
     {
@@ -44,7 +44,7 @@ const Productos = [
         title:"Oso Rufina",
         category: "Animales tejidos",
         price: 3280, 
-        image:"/assets/Oso Rufina.jpg",
+        image:"/assets/images/Rufina.jpg",
         stock: 2
     },
     {
@@ -52,7 +52,7 @@ const Productos = [
         title:"Sailor Moon",
         category: "Personajes tejidos",
         price: 1980,
-        image:"/assets/Sailor Moon.jpg",
+        image:"/assets/images/Sailor-Moon.jpg",
         stock: 4
     },
     {
@@ -60,7 +60,7 @@ const Productos = [
         title:"Sirena",
         category: "Personajes tejidos",
         price: 1980,
-        image:"/assets/Sirena.jpg",
+        image:"/assets/images/Sirena.jpg",
         stock: 3
     }
 ]

@@ -1,10 +1,11 @@
 import ItemListContainer from "../../components/ItemListContainer/ItemListContainer"
-import ElCarousel from "../../components/Carousel/Carousel";
+import BasicExample from "../../components/Carousel/Carousel";
+
 
 const Home=()=>{
     return(
         <>
-            <ElCarousel />
+            <BasicExample/>
             <ItemListContainer titulo="Listado de Productos" filtro=""/>
         </>
     )

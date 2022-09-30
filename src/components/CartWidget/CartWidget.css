@@ -5,7 +5,7 @@
     justify-content: flex-end;
     padding: 9px;
     column-gap: 10px;
-    background-color: white;
+    background-color: #f1d5e7;
 }
 a{
     text-decoration: none;
@@ -15,6 +15,7 @@ a{
     text-decoration: none;
     color: darkgray;
 }
+
 .top-20{
-    top:12px;
+    top: 12px;
 }

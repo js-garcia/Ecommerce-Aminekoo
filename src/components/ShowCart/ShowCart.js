@@ -52,7 +52,7 @@ function CartContainer() {
                 return (
                   <div key={p.id} className="item">
                     <div className="itemImg">
-                      <img className="imagen" src={`/assets/${p.imagen}`} alt="" />
+                      <img className="imagen" src={`/assets/images/${p.imagen}`} alt="" />
                     </div>
                     <div className="itemConDesc">
                       <div className="itemDescText">
